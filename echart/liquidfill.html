@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>echart图表展示</title>
+</head>
+<body style="width: 100%">
+	<div id="liquidfill-chart" style="width:100%; height:600px">
+		
+	</div>
+</body>
+<script src="echarts.js"></script>
+<script src="echarts-liquidfill.js"></script>
+<script type="text/javascript">
+	var chart = echarts.init(document.getElementById('liquidfill-chart'));
+	var option = {
+		title: {
+	        text: '各地区人消费金额的聚类------按照金额划分------鼠标放上查看城市(单位：万元)'
+	    },
+	    tooltip: {
+	        show: true
+	    },
+	    series: [{
+	        type: 'liquidFill',
+	        data: [{
+	        	value:0.77,
+	        	name: '北京,上海,广东'
+	        }, {
+	        	name: '天津,浙江, 福建, 重庆, 西藏',
+	            value: 0.56,
+	            itemStyle: {
+	                color: 'red'
+	            },
+	            direction: 'left'
+	        }, {
+	        	value:0.45,
+	        	name: '江苏, 安徽,湖南, 湖北, 广西, 海南, 四川, 云南'
+	        }, {
+	        	value:0.37,
+	        	direction: 'left',
+	        	name: '河北, 山西, 内蒙古, 辽宁,吉林, 黑龙江, 江西, 山东, 河南, 贵州, 陕西, 甘肃, 青海, 宁夏, 新疆'
+	        }],
+	        radius: 400
+	    }],
+	    label: {
+            position: ['38%','50%'],
+            formatter: function() {
+                return '';
+            },
+            fontSize: 22,
+            color: '#D94854'
+        }
+	};
+	chart.setOption(option);
+</script>
+</html>
